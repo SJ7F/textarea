@@ -45,6 +45,7 @@
   article.addEventListener('input', debounce(500, save))
   addEventListener('DOMContentLoaded', load)
   addEventListener('hashchange', load)
+  addEventListener('load', () => new MutationObserver(save).observe(article, {attributeFilter: ['style']}))
 
   async function load() {
     try {
